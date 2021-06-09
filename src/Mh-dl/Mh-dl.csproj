@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net472;net5.0;</TargetFrameworks>
+    <RootNamespace>Mh_dl</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework.Trim(`0123456789`))'=='net'">
+    <UsingFramework>true</UsingFramework>
+    <UsingAot>true</UsingAot>
+    <UsingCombine>false</UsingCombine>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Anf.Engine" Version="1.0.1" />
+    <PackageReference Include="Anf.KnowEngines" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.1.1" />
+    <PackageReference Include="Spectre.Console" Version="0.39.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'=='Release' and '$(UsingFramework)'=='true'">
+    <PackageReference Include="Microsoft.DotNet.Framework.NativeImageCompiler" Version="1.0.0" Condition="'$(UsingAot)'=='true'">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Costura.Fody" Version="5.3.0" Condition="'$(UsingCombine)'=='true'">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
