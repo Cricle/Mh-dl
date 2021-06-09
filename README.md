@@ -2,6 +2,6 @@
 
 这是一个命令行漫画下载工具
 
-# 引用
+# 构建状态
 
-[Anf](https://github.com/Cricle/Anf)
+[![.NET](https://github.com/Cricle/Mh-dl/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Cricle/Mh-dl/actions/workflows/dotnet.yml)
